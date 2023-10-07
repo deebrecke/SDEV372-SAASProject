@@ -1,6 +1,6 @@
 # All About Dogs
 
-![dog.png](..%2F..%2Fdog.png)
+![dog](./src/main/resources/static/images/dog.png)
 
 ## Project Properties
 - Author: Dee Brecke

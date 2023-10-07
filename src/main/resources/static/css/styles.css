@@ -1,0 +1,16 @@
+html{
+    background-color: azure;
+}
+
+h1{
+    text-align: center;
+}
+
+#dog_icon{
+    width: 25%;
+ }
+
+#dog_pic{
+    display: flex;
+    justify-content: center;
+}
