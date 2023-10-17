@@ -9,9 +9,22 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class VideoGame {
 
+    private static int videoIds = 0;
+
     private int id;
     private String consoleType;
     private String name;
     private boolean multiplayer;
 
+    public VideoGame(String consoleType, String name, boolean multiplayer) {
+        generateId();
+        this.consoleType = consoleType;
+        this.name = name;
+        this.multiplayer = multiplayer;
+    }
+
+    public void generateId(){
+        id = videoIds;
+        videoIds ++;
+    }
 }
