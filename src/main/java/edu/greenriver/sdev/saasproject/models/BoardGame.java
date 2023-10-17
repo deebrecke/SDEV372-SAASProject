@@ -1,6 +1,5 @@
 package edu.greenriver.sdev.saasproject.models;
 
-import com.fasterxml.jackson.annotation.JsonTypeId;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,6 +8,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BoardGame {
+
+    private static int boardIds = 0;
+
     private int id;
     private String category;
     private String name;
@@ -16,4 +18,12 @@ public class BoardGame {
     private int maxPlayers;
 
 
+    public BoardGame(String category, String name, int minPlayers, int maxPlayers) {
+        id = boardIds;
+        boardIds ++;
+        this.category = category;
+        this.name = name;
+        this.minPlayers = minPlayers;
+        this.maxPlayers = maxPlayers;
+    }
 }
