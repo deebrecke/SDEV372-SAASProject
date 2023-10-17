@@ -17,5 +17,4 @@ public class SaasProjectApplication {
     public static void main(String[] args) {
         SpringApplication.run(SaasProjectApplication.class, args);
     }
-
 }
