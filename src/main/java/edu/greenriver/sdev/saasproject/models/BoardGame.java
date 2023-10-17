@@ -19,11 +19,16 @@ public class BoardGame {
 
 
     public BoardGame(String category, String name, int minPlayers, int maxPlayers) {
-        id = boardIds;
-        boardIds ++;
+        generateId();
         this.category = category;
         this.name = name;
         this.minPlayers = minPlayers;
         this.maxPlayers = maxPlayers;
     }
+
+    public void generateId(){
+        id = boardIds;
+        boardIds ++;
+    }
+
 }

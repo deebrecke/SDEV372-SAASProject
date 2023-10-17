@@ -2,9 +2,7 @@ package edu.greenriver.sdev.saasproject.controllers;
 
 import edu.greenriver.sdev.saasproject.models.BoardGame;
 import edu.greenriver.sdev.saasproject.services.BoardGameService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,5 +27,10 @@ public class BoardGameApi {
     @GetMapping("boardgames/{bgId}")
     public BoardGame getBoardGameById(@PathVariable int bgId){
         return bgservice.getBoardGameById(bgId);
+    }
+
+    @PostMapping("boardgames")
+    public BoardGame addBoardGame(@RequestBody BoardGame boardGame){
+        return bgservice.addBoardGame(boardGame);
     }
 }

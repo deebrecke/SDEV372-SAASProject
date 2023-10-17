@@ -34,8 +34,10 @@ public class BoardGameService {
 
     }
 
-    public void addBoardGame(BoardGame boardGame){
+    public BoardGame addBoardGame(BoardGame boardGame){
+        boardGame.generateId();
         boardGames.add(boardGame);
+        return boardGame;
     }
 
     //this is because the example only has one other field
