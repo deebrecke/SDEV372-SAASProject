@@ -1,6 +1,6 @@
-# All About Dogs
+# Games are for Everyone
 
-![dog](./src/main/resources/static/images/dog.png)
+![dog](./src/main/resources/static/images/games.jpg)
 
 ## Project Properties
 - Author: Dee Brecke
@@ -18,5 +18,6 @@
 
 ## Project Description
 This is a quarter long project for SDEV 372: Software as a Service
-I will be using an API that contains random facts about dogs.
-It will eventually allow the user to add dog facts of their own.
+I will be creating an API with information about games in my collection.
+I will have two classes--one for board games and one for video games.
+It will eventually allow the user to add games of their own.
