@@ -8,11 +8,11 @@ h1{
     color: darkorchid;
 }
 
-#dog_icon{
+#game_assortment{
     width: 25%;
  }
 
-#dog_pic{
+#game_pic{
     display: flex;
     justify-content: center;
 }
