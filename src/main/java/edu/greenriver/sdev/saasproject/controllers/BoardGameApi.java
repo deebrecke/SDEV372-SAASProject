@@ -38,4 +38,9 @@ public class BoardGameApi {
     public BoardGame editBoardGameName(@RequestBody BoardGame boardGame){
         return bgservice.updateBoardGame(boardGame);
     }
+
+    @DeleteMapping("boardgames")
+    public void  deleteBoardGame(@RequestBody BoardGame boardGame){
+        bgservice.deleteBoardGame(boardGame.getId());
+    }
 }
