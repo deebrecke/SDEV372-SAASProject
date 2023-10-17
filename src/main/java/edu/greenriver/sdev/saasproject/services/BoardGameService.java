@@ -40,12 +40,13 @@ public class BoardGameService {
         return boardGame;
     }
 
-    //this is because the example only has one other field
-    //TODO: either write new methods to update individual fields
-    //OR modify this to update all fields
-    public void updateBoardGameName(BoardGame updatedBoardGame){
+    public BoardGame updateBoardGame(BoardGame updatedBoardGame){
         BoardGame savedBoardGame = getBoardGameById(updatedBoardGame.getId());
         savedBoardGame.setName(updatedBoardGame.getName());
+        savedBoardGame.setCategory(updatedBoardGame.getCategory());
+        savedBoardGame.setMinPlayers(updatedBoardGame.getMinPlayers());
+        savedBoardGame.setMaxPlayers(updatedBoardGame.getMaxPlayers());
+        return savedBoardGame;
     }
 
     public void deleteBoardGame(int id){
