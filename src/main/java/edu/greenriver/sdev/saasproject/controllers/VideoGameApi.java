@@ -2,9 +2,12 @@ package edu.greenriver.sdev.saasproject.controllers;
 
 import edu.greenriver.sdev.saasproject.models.VideoGame;
 import edu.greenriver.sdev.saasproject.services.VideoGameService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Random;
 
 @RestController
 public class VideoGameApi {
@@ -15,23 +18,23 @@ public class VideoGameApi {
     }
 
     @GetMapping("videogames")
-    public List<VideoGame> allVideoGames(){
-        return vgservice.getAllVideoGames();
+    public ResponseEntity<List<VideoGame>> allVideoGames(){
+        return new ResponseEntity<>(vgservice.getAllVideoGames(), HttpStatus.OK);
     }
 
     @GetMapping("videogames/random")
-    public VideoGame random(){
-        return vgservice.random();
+    public ResponseEntity<VideoGame> random(){
+        return new ResponseEntity<>(vgservice.random(), HttpStatus.OK);
     }
 
     @GetMapping("videogames/{vgId}")
-    public VideoGame getVideoGameById(@PathVariable int vgId){
-        return vgservice.getVideoGameById(vgId);
+    public ResponseEntity<VideoGame> getVideoGameById(@PathVariable int vgId){
+        return new ResponseEntity<>(vgservice.getVideoGameById(vgId), HttpStatus.OK);
     }
 
     @PostMapping("videogames")
-    public VideoGame addVideoGame(@RequestBody VideoGame videoGame){
-        return vgservice.addVideoGame(videoGame);
+    public ResponseEntity<VideoGame> addVideoGame(@RequestBody VideoGame videoGame){
+        return new ResponseEntity<>(vgservice.addVideoGame(videoGame), HttpStatus.CREATED);
     }
 
     @PutMapping("videogames")
