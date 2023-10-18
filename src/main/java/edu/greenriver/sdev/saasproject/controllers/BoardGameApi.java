@@ -35,7 +35,7 @@ public class BoardGameApi {
     }
 
     @PutMapping("boardgames")
-    public BoardGame editBoardGameName(@RequestBody BoardGame boardGame){
+    public BoardGame editBoardGame(@RequestBody BoardGame boardGame){
         return bgservice.updateBoardGame(boardGame);
     }
 
