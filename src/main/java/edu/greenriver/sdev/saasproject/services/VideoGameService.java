@@ -35,7 +35,6 @@ public class VideoGameService {
     }
 
     public VideoGame addVideoGame(VideoGame videoGame){
-        videoGame.generateId();
         videoGames.add(videoGame);
         return videoGame;
     }
@@ -58,10 +57,3 @@ public class VideoGameService {
 
     }
 }
-
-/*
-    private int id;
-    private String consoleType;
-    private String name;
-    private boolean multiplayer;
- */

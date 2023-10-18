@@ -35,7 +35,6 @@ public class BoardGameService {
     }
 
     public BoardGame addBoardGame(BoardGame boardGame){
-        boardGame.generateId();
         boardGames.add(boardGame);
         return boardGame;
     }
