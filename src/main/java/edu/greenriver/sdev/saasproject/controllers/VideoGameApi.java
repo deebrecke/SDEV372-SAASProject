@@ -29,6 +29,9 @@ public class VideoGameApi {
 
     @GetMapping("videogames/{vgId}")
     public ResponseEntity<VideoGame> getVideoGameById(@PathVariable int vgId){
+        if(!vgservice.videoGameExistById(vgId)){
+            return new ResponseEntity<>((HttpStatus.NOT_FOUND));
+        }
         return new ResponseEntity<>(vgservice.getVideoGameById(vgId), HttpStatus.OK);
     }
 

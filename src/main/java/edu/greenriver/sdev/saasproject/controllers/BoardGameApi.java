@@ -29,6 +29,9 @@ public class BoardGameApi {
 
     @GetMapping("boardgames/{bgId}")
     public ResponseEntity<BoardGame> getBoardGameById(@PathVariable int bgId){
+        if(!bgservice.boardGameExistById(bgId)){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);//404 not there
+        }
         return new ResponseEntity<>(bgservice.getBoardGameById(bgId),HttpStatus.OK);//200
     }
 
