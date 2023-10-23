@@ -26,6 +26,10 @@ public class VideoGameService {
         return found.orElse(null);
     }
 
+    public boolean videoGameExistById(int id){
+        return getVideoGameById(id) != null;
+    }
+
     public VideoGame random(){
         Random rand = new Random();
         List<VideoGame> videoGames = getAllVideoGames();

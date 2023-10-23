@@ -38,12 +38,19 @@ public class VideoGameApi {
     }
 
     @PutMapping("videogames")
-    public VideoGame editVideoGame(@RequestBody VideoGame videoGame){
-        return vgservice.updateVideoGame(videoGame);
+    public ResponseEntity<VideoGame> editVideoGame(@RequestBody VideoGame videoGame){
+        if(!vgservice.videoGameExistById(videoGame.getId())){
+            return new ResponseEntity<>((HttpStatus.NOT_FOUND));
+        }
+        return new ResponseEntity<>(vgservice.updateVideoGame(videoGame), HttpStatus.OK);
     }
 
     @DeleteMapping("videogames")
-    public void deleteVideoGame(@RequestBody VideoGame videoGame){
+    public ResponseEntity deleteVideoGame(@RequestBody VideoGame videoGame){
+        if(!vgservice.videoGameExistById(videoGame.getId())){
+            return new ResponseEntity<>((HttpStatus.NOT_FOUND));
+        }
         vgservice.deleteVideoGame(videoGame.getId());
+        return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
 }

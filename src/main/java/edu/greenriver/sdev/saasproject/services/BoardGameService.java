@@ -26,6 +26,10 @@ public class BoardGameService {
         return found.orElse(null);
     }
 
+    public boolean boardGameExistById(int id){
+        return getBoardGameById(id) != null;
+    }
+
     public BoardGame random(){
         Random rand = new Random();
         List<BoardGame> boardGames = getAllBoardGames();
