@@ -1,0 +1,309 @@
+{
+	"info": {
+		"_postman_id": "ff14d90d-1eb7-48ec-94b9-098e0e45fce1",
+		"name": "SAAS Project Collection",
+		"description": "A mock api for tracking games in my personal collection.\n\nAuthor: Dee Brecke\n\nClass: SDEV 372\n\nQuarter: Fall 2023\n\nEndpoints:\n\n- /videogames -- accesses video game records\n- /boardgames -- accesses board game records",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30297492"
+	},
+	"item": [
+		{
+			"name": "All Board Games",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/boardgames",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"boardgames"
+					]
+				},
+				"description": "Retrieves all board games in order of their id's.\n\n  \nResponses:  \n200 (OK) All games retrieved"
+			},
+			"response": []
+		},
+		{
+			"name": "Random Board Game",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/boardgames/random",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"boardgames",
+						"random"
+					]
+				},
+				"description": "Retrieves a board game using a randomly generated id. Running this request multiple times brings different results.\n\nResponses:\n\n200 (OK) Board Game retrieved"
+			},
+			"response": []
+		},
+		{
+			"name": "Board Game by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/boardgames/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"boardgames",
+						"3"
+					]
+				},
+				"description": "Returns the board game with the id entered into the path variable. It is currently set at 3 , but this number can be changed in the path to return a different game.\n\nResponses:\n\n- 200 (OK) board game found and returned\n    \n- 404 (NOT FOUND) board game is not found"
+			},
+			"response": []
+		},
+		{
+			"name": "Add New Board Game",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"category\": \"family\",\r\n    \"name\": \"connect 4\",\r\n    \"minPlayers\": \"2\",\r\n    \"maxPlayers\": \"2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/boardgames",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"boardgames"
+					]
+				},
+				"description": "Adds a new board game object to the collection and assigns a unique id.\n\nExample request body:\n\n{\n\n\"category\": \"family\",\n\n\"name\": \"connect 4\",\n\n\"minPlayers\": \"2\",\n\n\"maxPlayers\": \"2\"\n\n}\n\nResponses:\n\n- 201 (CREATED) Board game object successfully created\n- 400 (BAD REQUEST) JSON not formatted correctly\n    \n\n\\*Note: leaving out a field does not return a 400 bad request status, it just puts a 0 (int fields) or null (string fields) in that field."
+			},
+			"response": []
+		},
+		{
+			"name": "Update Board Game",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "        {\r\n        \"id\": \"1\",\r\n        \"category\": \"logic\",\r\n        \"name\": \"Catan\",\r\n        \"minPlayers\": \"2\",\r\n        \"maxPlayers\": \"4\"\r\n        }\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/boardgames",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"boardgames"
+					]
+				},
+				"description": "Changes one or more fields of an existing board game object, as identified by id #.\n\nExample body:\n\n{\n\n\"id\": \"1\"\n\n\"category\": \"logic\",\n\n\"name\": \"Catan\",\n\n\"minPlayers\": 2,\n\n\"maxPlayers\": 4\n\n}\n\nResponses:\n\n- 200 (OK) Board game object successfully changed\n- 404 (NOT FOUND) Id not valid, nothing was found to change\n- 400 (BAD REQUEST) JSON not formatted correctly\n    \n\n\\*Note: leaving out a field does not return a 400 bad request status, it just puts a 0 (int fields) or null (string fields) in that field."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Board Game",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/boardgames",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"boardgames"
+					]
+				},
+				"description": "Given an id #, board game object is removed.\n\nExample body:\n\n{\n\n\"id\" : \"2\"\n\n}\n\nResponses:\n\n- 204 (NO CONTENT) Game was successfully removed\n- 404 (NOT FOUND) Id doesn't exist"
+			},
+			"response": []
+		},
+		{
+			"name": "All Video Games",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/videogames",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"videogames"
+					]
+				},
+				"description": "Retrieves all video games in order of their id's.  \nResponses:  \n200 (OK) All games retrieved"
+			},
+			"response": []
+		},
+		{
+			"name": "Random Video Game",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/videogames/random",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"videogames",
+						"random"
+					]
+				},
+				"description": "Retrieves a video game object using a randomly generated id. Running this request multiple times brings different results.\n\nResponses:\n\n200 (OK) Video Game retrieved"
+			},
+			"response": []
+		},
+		{
+			"name": "Video Game by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/videogames/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"videogames",
+						"2"
+					]
+				},
+				"description": "Returns the video game with the id entered into the path variable. It is currently set at 2 , but this number can be changed in the path to return a different game.\n\nResponses:\n\n- 200 (OK) video game found and returned\n    \n- 404 (NOT FOUND) video game is not found"
+			},
+			"response": []
+		},
+		{
+			"name": "Add New Video Game",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"consoleType\": \"Switch\",\r\n    \"name\": \"Tetris 99\",\r\n    \"multiplayer\": \"false\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/videogames",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"videogames"
+					]
+				},
+				"description": "Adds a new board game object to the collection and assigns a unique id.\n\nExample request body:\n\n{\n\n\"consoleType\": \"Switch\",\n\n\"name\": \"MarioKart\",\n\n\"multiplayer\": \"true\",\n\n}\n\nResponses:\n\n- 201 (CREATED) video game object successfully created\n    \n- 400 (BAD REQUEST) JSON not formatted correctly"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Video Game",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"3\",\r\n    \"consoleType\": \"Wii\",\r\n    \"name\": \"MarioKart\",\r\n    \"multiplayer\": \"true\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/videogames",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"videogames"
+					]
+				},
+				"description": "Changes one or more fields of an existing video game object, as identified by id #.\n\nExample body:\n\n{\n\n\"id\": \"2\",\n\n\"consoleType\": \"Atari\",\n\n\"name\": \"Pong\",\n\n\"multiplayer\": \"true\"\n\n}\n\nResponses:\n\n- 200 (OK) video game object successfully changed\n    \n- 404 (NOT FOUND) Id not valid, nothing was found to change\n- 400 (BAD REQUEST) JSON not formatted correctly"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Video Game",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"3\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/videogames",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"videogames"
+					]
+				},
+				"description": "Given an id #, video game object is removed.\n\nExample body:\n\n{\n\n\"id\" : \"2\"\n\n}\n\nResponses:\n\n- 204 (NO CONTENT) Game was successfully removed\n- 404 (NOT FOUND) Id doesn't exist"
+			},
+			"response": []
+		}
+	]
+}
