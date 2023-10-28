@@ -2,11 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/styles.css">
     <title>Games</title>
+    <script src="scripts/scripts.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 <h1>Games are for Everyone!</h1>
+
+
 <div id="game_pic">
     <img src="images/games.jpg" alt="Assortment of games" id="game_assortment"/>
 </div>
@@ -44,9 +47,61 @@
         </li>
     </ul>
 </div>
+<h2>My Board Games</h2>
+<section id="bg-table">
+    <table>
+        <thead>
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Category</td>
+            <td>Minimum Players</td>
+            <td>Maximum Players</td>
+            <td>Edit</td>
+            <td>Delete</td>
+        </tr>
+        </thead>
+        <tbody id="bg-tbody">
+        </tbody>
+    </table>
+</section>
 
+<section>
+    <form>
+        <h4>Enter a new Board Game</h4>
+        <label>Name<input type="text" id="bg-name"></label>
+        <label>Category<input type="text" id="bg-category"></label>
+        <label>Min Players<input type="text" id="bg-min"></label>
+        <label>Max Players<input type="text" id="bg-max"></label>
+        <button id="add-bg">Add Boardgame</button>
+    </form>
+</section>
 
-
-
+<h2>My Video Games</h2>
+<section id="vg-table">
+    <table>
+        <thead>
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Console Type</td>
+            <td>Multi - Player?</td>
+            <td>Edit</td>
+            <td>Delete</td>
+        </tr>
+        </thead>
+        <tbody id="vg-tbody">
+        </tbody>
+    </table>
+</section>
+<section>
+    <form>
+        <h4>Enter a new Video Game</h4>
+        <label>Name<input type="text" id="vg-name"></label>
+        <label>Console<input type="text" id="vg-console"></label>
+        <label>MultiPlayer?<input type="text" id="vg-multi"></label>
+        <button id="add-vg">Add Videogame</button>
+    </form>
+</section>
 </body>
 </html>

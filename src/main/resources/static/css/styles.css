@@ -17,3 +17,24 @@ h1{
     justify-content: center;
 }
 
+table, tr, td{
+    border: 2px solid black;
+}
+table{
+    border-collapse: collapse;
+}
+
+form {
+    /*border: 2px solid black; */
+    margin: 12px;
+    padding-top: 12px;
+}
+
+label, input, button {
+    display: block;
+    margin-bottom: 4px;
+}
+
+label {
+    font-size: 16px;
+}
