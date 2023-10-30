@@ -1,6 +1,11 @@
 window.onload = async function(){
     await fetchBoardGames();
-    await fetchVideoGames()
+    await fetchVideoGames();
+    let addBoardGameButton = document.querySelector("button#add-bg");
+    addBoardGameButton.onclick = addNewBoardGame;
+    let addVideoGameButton = document.querySelector("button#add-vg");
+    addVideoGameButton.onclick = addNewVideoGame;
+
 }
 
 async function fetchBoardGames()
@@ -13,8 +18,8 @@ async function fetchBoardGames()
     let response = await fetch(uri, config);
     let json = await response.json();
     addBoardGamesToTable(json)
-
 }
+
 async function fetchVideoGames()
 {
     let uri = "http://localhost:8080/videogames"
@@ -25,9 +30,7 @@ async function fetchVideoGames()
     let response = await fetch(uri, config);
     let json = await response.json();
     addVideoGamesToTable(json)
-
 }
-
 
 function addSingleBoardGameToTable(boardgame)
 {
@@ -98,10 +101,9 @@ function addVideoGamesToTable(videoGameArray)
     }
 }
 
-//adds a new joke when user enters and presses button
-async function addBoardGame(event)
+async function addNewBoardGame(event)
 {
-    //stop the form from submitting, we will use fetch() instead!
+    //stop the form from submitting, we are using fetch() instead!
     event.preventDefault();
 
     let newBoardGame = {
@@ -121,9 +123,34 @@ async function addBoardGame(event)
     };
 
     let response = await fetch(uri, config);
-    let json = await response.json();
+    let jsonObjectReturned = await response.json();
+    //console.log("Game added", json);//nothing is showing up in the console yet
+    addSingleBoardGameToTable(jsonObjectReturned);
+}
 
-    addSingleBoardGameToTable(newBoardGame);
+//adds a new joke when user enters and presses button
+async function addNewVideoGame(event)
+{
+    //stop the form from submitting, we will use fetch() instead!
+    event.preventDefault();
 
-    console.log("Game added", json);
+    let newVideoGame = {
+        name: document.querySelector("input#vg-name").value,
+        consoleType: document.querySelector("input#vg-console").value,
+        multiplayer: document.querySelector("input#vg-multi").value,
+    };
+
+    let uri = "http://localhost:8080/videogames";
+    let config = {
+        method: "post",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newVideoGame)
+    };
+
+    let response = await fetch(uri, config);
+    let jsonObjectReturned = await response.json();
+
+    addSingleVideoGameToTable(jsonObjectReturned);
 }
