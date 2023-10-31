@@ -5,6 +5,8 @@ window.onload = async function () {
     addBoardGameButton.onclick = addNewBoardGame;
     let addVideoGameButton = document.querySelector("button#add-vg");
     addVideoGameButton.onclick = addNewVideoGame;
+    let editVideoGameButton = document.querySelector("button#edit-vg");
+    editVideoGameButton.onclick = editVideoGame;
 }
 
 async function fetchBoardGames() {
@@ -167,4 +169,34 @@ async function addNewBoardGame(event) {
     } else {
         alert("Please enter a number between 1 - 20")
     }
+}
+
+async function editVideoGame(event){
+    event.preventDefault();
+
+    //let vgId = document.querySelector("input#edit-vg-id");//will check for valid id later
+
+        let editedVideoGame = {
+            id: document.querySelector("input#edit-vg-id"),
+            name: document.querySelector("input#vg-name").value,
+            consoleType: document.querySelector("input#vg-console").value,
+            multiplayer: document.querySelector("input#vg-multi").value
+        };
+
+        let uri = "http://localhost:8080/videogames";
+        let config = {
+            method: "put",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(editedVideoGame)
+        };
+
+        let response = await fetch(uri, config);
+        let jsonObjectReturned = await response.json();
+
+        //addSingleVideoGameToTable(jsonObjectReturned);
+        //figure out how to change the value here
+    // I think I need to add something to the fetch function
+
 }

@@ -91,6 +91,30 @@
         </form>
     </section>
 
+    <section>
+        <form>
+            <h3>Edit a Board Game</h3>
+            <label>Id#: </label>
+            <input type="text" id="edit-bg-id">
+            <br>
+            <label>Name: </label>
+            <input type="text" id="edit-bg-name">
+            <br>
+            <label>Category: </label>
+            <input type="text" id="edit-bg-category">
+            <br>
+
+            <label>Min Players: </label>
+            <input type="text" id="edit-bg-min">
+            <br>
+
+            <label>Max Players: </label>
+            <input type="text" id="edit-bg-max">
+            <br>
+            <button id="edit-add-bg">Edit Boardgame</button>
+        </form>
+    </section>
+
 </div>
 <br>
 <hr>
@@ -98,20 +122,22 @@
 
     <section id="vg-table">
         <h2>My Video Games</h2>
-        <table>
-            <thead>
-            <tr>
-                <td>Id</td>
-                <td>Name</td>
-                <td>Console Type</td>
-                <td>Multi - Player?</td>
-                <td>Edit</td>
-                <td>Delete</td>
-            </tr>
-            </thead>
-            <tbody id="vg-tbody">
-            </tbody>
-        </table>
+        <div id="test">
+            <table>
+                <thead>
+                <tr>
+                    <td>Id</td>
+                    <td>Name</td>
+                    <td>Console Type</td>
+                    <td>Multi - Player?</td>
+                    <td>Edit</td>
+                    <td>Delete</td>
+                </tr>
+                </thead>
+                <tbody id="vg-tbody">
+                </tbody>
+            </table>
+        </div>
     </section>
 
     <section>
@@ -126,10 +152,32 @@
             <label>MultiPlayer?: </label>
             <input type="text" id="vg-multi">
             <br>
-            <button id="add-vg">Add Videogame: </button>
+            <button id="add-vg">Add Videogame:</button>
+        </form>
+    </section>
+
+    <section>
+        <form>
+            <h3>Edit a Board Game</h3>
+            <label>Id#: </label>
+            <input type="text" id="edit-vg-id">
+            <br>
+            <label>Name: </label>
+            <input type="text" id="edit-vg-name">
+            <br>
+            <label>Console: </label>
+            <input type="text" id="edit-vg-console">
+            <br>
+
+            <label>Multiplayer: </label>
+            <input type="text" id="edit-bg-multi">
+            <br>
+
+            <button id="edit-vg">Edit Videogame</button>
         </form>
     </section>
 </div>
+<br>
 <hr>
 
 </body>

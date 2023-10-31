@@ -8,7 +8,7 @@ body{
 h1{
     text-align: center;
     font-family: Papyrus, serif;
-    color: darkorchid;
+    color: blue;
 }
 
 #game_assortment{
@@ -22,7 +22,7 @@ h1{
 
 .gametables{
     display: grid;
-    grid-template-columns: 2fr 1fr;/* edit this as necessary for layout*/
+    grid-template-columns: 2fr 1fr 1fr;/* edit this as necessary for layout*/
 }
 
 label {
@@ -40,7 +40,7 @@ input{
 }
 
 button {
-    background-color: #1880ef;
+    background-color: blue;
     color: white;
     padding: 10px 20px;
     border: 1px solid black;
@@ -54,12 +54,19 @@ button {
 table, tr, td{
     border: 2px solid black;
 }
-table {
+#test{
+    border-radius: 5px;
+    overflow: hidden;
+}
+table{
     width: 100%;
     border-collapse: collapse;
 }
-
-th, td {
+thead{
+    color: white;
+    background-color: blue;
+}
+td {
     padding: 10px;
     text-align: left;
 }
@@ -67,6 +74,9 @@ tr:hover {
     background-color: #57d2fa;
 }
 
+tbody > tr{
+    background-color: white;
+}
 /* Center specific columns */
 #bg-table td:nth-child(4), #bg-table td:nth-child(5) {
     text-align: center;
