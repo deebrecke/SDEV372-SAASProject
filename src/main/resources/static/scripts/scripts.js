@@ -124,33 +124,40 @@ async function addNewBoardGame(event)
 
     let response = await fetch(uri, config);
     let jsonObjectReturned = await response.json();
-    //console.log("Game added", json);//nothing is showing up in the console yet
     addSingleBoardGameToTable(jsonObjectReturned);
 }
 
-//adds a new joke when user enters and presses button
-async function addNewVideoGame(event)
-{
-    //stop the form from submitting, we will use fetch() instead!
+
+async function addNewVideoGame(event) {
     event.preventDefault();
 
-    let newVideoGame = {
-        name: document.querySelector("input#vg-name").value,
-        consoleType: document.querySelector("input#vg-console").value,
-        multiplayer: document.querySelector("input#vg-multi").value,
-    };
+    let multiplayerInput = document.querySelector("input#vg-multi");
+    let multiplayerValue = multiplayerInput.value;
 
-    let uri = "http://localhost:8080/videogames";
-    let config = {
-        method: "post",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(newVideoGame)
-    };
+    //added validation for boolean field
+    if (multiplayerValue === "true" || multiplayerValue === "false") {
 
-    let response = await fetch(uri, config);
-    let jsonObjectReturned = await response.json();
+        let newVideoGame = {
+            name: document.querySelector("input#vg-name").value,
+            consoleType: document.querySelector("input#vg-console").value,
+            multiplayer: multiplayerValue,
+        };
 
-    addSingleVideoGameToTable(jsonObjectReturned);
+        let uri = "http://localhost:8080/videogames";
+        let config = {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newVideoGame)
+        };
+
+        let response = await fetch(uri, config);
+        let jsonObjectReturned = await response.json();
+
+        addSingleVideoGameToTable(jsonObjectReturned);
+    } else {
+        alert("Please enter 'true' or 'false' for Multiplayer.");
+    }
 }
+
