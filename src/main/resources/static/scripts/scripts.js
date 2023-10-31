@@ -101,46 +101,21 @@ function addVideoGamesToTable(videoGameArray)
     }
 }
 
-async function addNewBoardGame(event)
-{
-    //stop the form from submitting, we are using fetch() instead!
-    event.preventDefault();
 
-    let newBoardGame = {
-        name: document.querySelector("input#bg-name").value,
-        category: document.querySelector("input#bg-category").value,
-        minPlayers: document.querySelector("input#bg-min").value,
-        maxPlayers: document.querySelector("input#bg-max").value
-    };
-
-    let uri = "http://localhost:8080/boardgames";
-    let config = {
-        method: "post",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(newBoardGame)
-    };
-
-    let response = await fetch(uri, config);
-    let jsonObjectReturned = await response.json();
-    addSingleBoardGameToTable(jsonObjectReturned);
-}
 
 
 async function addNewVideoGame(event) {
     event.preventDefault();
 
-    let multiplayerInput = document.querySelector("input#vg-multi");
-    let multiplayerValue = multiplayerInput.value;
+    let multiplayerInput = document.querySelector("input#vg-multi").value;
 
     //added validation for boolean field
-    if (multiplayerValue === "true" || multiplayerValue === "false") {
+    if (multiplayerInput === "true" || multiplayerInput === "false") {
 
         let newVideoGame = {
             name: document.querySelector("input#vg-name").value,
             consoleType: document.querySelector("input#vg-console").value,
-            multiplayer: multiplayerValue,
+            multiplayer: multiplayerInput,
         };
 
         let uri = "http://localhost:8080/videogames";
@@ -161,3 +136,35 @@ async function addNewVideoGame(event) {
     }
 }
 
+async function addNewBoardGame(event)
+{
+    //stop the form from submitting, we are using fetch() instead!
+    event.preventDefault();
+
+    let minInput = document.querySelector("input#bg-min").value;
+    let maxInput = document.querySelector("input#bg-max").value;
+
+    if(minInput > 0 && minInput <= 20 && maxInput > 0 && maxInput <= 20){
+        let newBoardGame = {
+            name: document.querySelector("input#bg-name").value,
+            category: document.querySelector("input#bg-category").value,
+            minPlayers: minInput,
+            maxPlayers: maxInput
+        };
+
+        let uri = "http://localhost:8080/boardgames";
+        let config = {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newBoardGame)
+        };
+
+        let response = await fetch(uri, config);
+        let jsonObjectReturned = await response.json();
+        addSingleBoardGameToTable(jsonObjectReturned);
+    }else{
+        alert("Please enter a number between 1 - 20")
+    }
+}
