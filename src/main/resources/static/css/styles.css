@@ -1,6 +1,9 @@
 html{
     background-color: azure;
 }
+body{
+    margin: 30px;
+}
 
 h1{
     text-align: center;
@@ -17,24 +20,61 @@ h1{
     justify-content: center;
 }
 
+
+
+.gametables{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+
+label {
+    font-weight: bold;
+}
+
+input{
+    /*A tricky way to keep the label on the same line w/o input box being to small 100% - 120px for labels */
+    width: calc(100% - 120px);
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+button {
+    background-color: #1880ef;
+    color: white;
+    padding: 10px 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+#bg-table, #vg-table{
+    margin-right: 20px;
+}
+
 table, tr, td{
     border: 2px solid black;
 }
-table{
+
+table {
+    width: 100%;
     border-collapse: collapse;
 }
 
-form {
-    /*border: 2px solid black; */
-    margin: 12px;
-    padding-top: 12px;
+th, td {
+    padding: 10px;
+    text-align: left;
+    /*border-bottom: 1px solid #ddd;*/
 }
 
-label, input, button {
-    display: block;
-    margin-bottom: 4px;
+
+tr:hover {
+    background-color: #57d2fa;
 }
 
-label {
-    font-size: 16px;
+
+/* Center specific columns */
+#bg-table td:nth-child(4), #bg-table td:nth-child(5) {
+    text-align: center;
 }

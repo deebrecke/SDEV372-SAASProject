@@ -9,11 +9,9 @@
 <body>
 <h1>Games are for Everyone!</h1>
 
-
 <div id="game_pic">
     <img src="images/games.jpg" alt="Assortment of games" id="game_assortment"/>
 </div>
-
 
 <p>Welcome to my games web page. I personally love games of all sorts, video games, board games, card games,
     but generally not head games. On this page I will be cataloguing and describing some of the games I have at home.
@@ -40,68 +38,98 @@
             for Neanderthals or Taboo.
         </li>
         <li>
-            <strong>Other Games</strong> Some games either fit multiple categories or don't quite fit into the categories
+            <strong>Other Games</strong> Some games either fit multiple categories or don't quite fit into the
+            categories
             listed above, so they are in the "other" category. I included all of my two-player-only games,
             such as pentago, backgammon, and hive as well as some hard-to classify card games like exploding kittens and
             Here to Slay.
         </li>
     </ul>
 </div>
-<h2>My Board Games</h2>
-<section id="bg-table">
-    <table>
-        <thead>
-        <tr>
-            <td>Id</td>
-            <td>Name</td>
-            <td>Category</td>
-            <td>Minimum Players</td>
-            <td>Maximum Players</td>
-            <td>Edit</td>
-            <td>Delete</td>
-        </tr>
-        </thead>
-        <tbody id="bg-tbody">
-        </tbody>
-    </table>
-</section>
 
-<section>
-    <form>
-        <h4>Enter a new Board Game</h4>
-        <label>Name<input type="text" id="bg-name"></label>
-        <label>Category<input type="text" id="bg-category"></label>
-        <label>Min Players<input type="text" id="bg-min"></label>
-        <label>Max Players<input type="text" id="bg-max"></label>
-        <button id="add-bg">Add Boardgame</button>
-    </form>
-</section>
+<div class="gametables">
 
-<h2>My Video Games</h2>
-<section id="vg-table">
-    <table>
-        <thead>
-        <tr>
-            <td>Id</td>
-            <td>Name</td>
-            <td>Console Type</td>
-            <td>Multi - Player?</td>
-            <td>Edit</td>
-            <td>Delete</td>
-        </tr>
-        </thead>
-        <tbody id="vg-tbody">
-        </tbody>
-    </table>
-</section>
-<section>
-    <form>
-        <h4>Enter a new Video Game</h4>
-        <label>Name<input type="text" id="vg-name"></label>
-        <label>Console<input type="text" id="vg-console"></label>
-        <label>MultiPlayer?<input type="text" id="vg-multi"></label>
-        <button id="add-vg">Add Videogame</button>
-    </form>
-</section>
+    <section id="bg-table">
+        <h2>My Board Games</h2>
+        <table>
+            <thead>
+            <tr>
+                <td>Id</td>
+                <td>Name</td>
+                <td>Category</td>
+                <td>Minimum Players</td>
+                <td>Maximum Players</td>
+                <td>Edit</td>
+                <td>Delete</td>
+            </tr>
+            </thead>
+
+            <tbody id="bg-tbody">
+            </tbody>
+
+        </table>
+    </section>
+
+    <section>
+        <form>
+            <h3>Enter a new Board Game</h3>
+            <label>Name: </label>
+            <input type="text" id="bg-name">
+            <br>
+            <label>Category: </label>
+            <input type="text" id="bg-category">
+            <br>
+
+            <label>Min Players: </label>
+            <input type="text" id="bg-min">
+            <br>
+
+            <label>Max Players: </label>
+            <input type="text" id="bg-max">
+            <br>
+            <button id="add-bg">Add Boardgame</button>
+        </form>
+    </section>
+
+</div>
+<br>
+<hr>
+<div class="gametables">
+
+    <section id="vg-table">
+        <h2>My Video Games</h2>
+        <table>
+            <thead>
+            <tr>
+                <td>Id</td>
+                <td>Name</td>
+                <td>Console Type</td>
+                <td>Multi - Player?</td>
+                <td>Edit</td>
+                <td>Delete</td>
+            </tr>
+            </thead>
+            <tbody id="vg-tbody">
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <form id="addnewvg">
+            <h3>Enter a new Video Game</h3>
+            <label>Name: </label>
+            <input type="text" id="vg-name">
+            <br>
+            <label>Console: </label>
+            <input type="text" id="vg-console">
+            <br>
+            <label>MultiPlayer?: </label>
+            <input type="text" id="vg-multi">
+            <br>
+            <button id="add-vg">Add Videogame: </button>
+        </form>
+    </section>
+</div>
+
 </body>
 </html>
