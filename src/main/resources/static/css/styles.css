@@ -22,16 +22,17 @@ h1{
 
 .gametables{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 1fr;/* edit this as necessary for layout*/
 }
 
 label {
-    font-weight: bold;
+    width: 100px;
+    display: inline-block;
 }
 
 input{
-    /*A tricky way to keep the label on the same line w/o input box being to small 100% - 120px for labels */
-    width: calc(100% - 120px);
+    /*A tricky way to keep the label on the same line w/o input box being to small 100% - 120px for labels
+    width: calc(100% - 100px); Only this screwed up the inline-block styling of the label field*/
     padding: 5px;
     border: 1px solid black;
     border-radius: 5px;
