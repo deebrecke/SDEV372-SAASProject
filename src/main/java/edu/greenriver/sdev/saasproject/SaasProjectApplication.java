@@ -31,7 +31,10 @@ public class SaasProjectApplication {
                 new BoardGame("family", "Parcheesi", 2, 4),
                 new BoardGame("logic", "Terraforming Mars", 1, 5),
                 new BoardGame("party", "Cards Against Humanity", 4, 20),
-                new BoardGame("other", "Hive", 2, 2)
+                new BoardGame("other", "Hive", 2, 2),
+                new BoardGame("other", "Pentago", 2, 2),
+                new BoardGame("logic", "Puerto Rico", 2, 5),
+                new BoardGame("family", "Pickomino", 2, 6)
         ));
 
         bgrepo.saveAll(boardGames);
@@ -39,7 +42,10 @@ public class SaasProjectApplication {
         List<VideoGame> videoGames = new ArrayList<>(List.of(
                 new VideoGame("Wii", "Wii Fit", false),
                 new VideoGame("Oculus", "In Death: Unchained", false),
-                new VideoGame("Switch", "Mario Party", true)
+                new VideoGame("Switch", "Mario Party", true),
+                new VideoGame("Switch", "MarioKart", true),
+                new VideoGame("Oculus", "Beat Sabre", true),
+                new VideoGame("Wii", "MarioKart", true)
         ));
 
         vgrepo.saveAll(videoGames);

@@ -29,6 +29,7 @@ async function fetchVideoGames() {
     let response = await fetch(uri, config);
     let json = await response.json();
     addVideoGamesToTable(json)
+    editVideoGame(json)
 }
 
 function addSingleBoardGameToTable(boardgame) {
@@ -78,8 +79,9 @@ function addSingleVideoGameToTable(videogame) {
     let tableName = document.createElement("td");
     let tableConsole = document.createElement("td");
     let tableMulti = document.createElement("td");
-    let editButton = document.createElement("td");
+    //let editButton = document.createElement("td");
     let deleteButton = document.createElement("td")
+    let deleteLink =document.createElement("a")
 
     //connect them (parent to child)
     body.appendChild(row);
@@ -87,16 +89,18 @@ function addSingleVideoGameToTable(videogame) {
     row.appendChild(tableName)
     row.appendChild(tableConsole)
     row.appendChild(tableMulti)
-    row.appendChild(editButton)
+    //row.appendChild(editButton)
     row.appendChild(deleteButton)
+    deleteButton.appendChild(deleteLink)
 
     //add text or HTML attributes
     tableId.textContent = videogame.id;
     tableName.textContent = videogame.name;
     tableConsole.textContent = videogame.consoleType;
     tableMulti.textContent = videogame.multiplayer;
-    editButton.textContent = "edit"
+    //editButton.textContent = "edit"
     deleteButton.textContent = "delete"
+    deleteLink.href = "home.html"
 }
 
 function addVideoGamesToTable(videoGameArray) {
@@ -174,8 +178,6 @@ async function addNewBoardGame(event) {
 async function editVideoGame(event){
     event.preventDefault();
 
-    //let vgId = document.querySelector("input#edit-vg-id");//will check for valid id later
-
         let editedVideoGame = {
             id: document.querySelector("input#edit-vg-id"),
             name: document.querySelector("input#vg-name").value,
@@ -195,8 +197,41 @@ async function editVideoGame(event){
         let response = await fetch(uri, config);
         let jsonObjectReturned = await response.json();
 
-        //addSingleVideoGameToTable(jsonObjectReturned);
+        //addSingleVideoGameToTable(jsonObjectReturned);//NO, this adds a new blank line to the table
         //figure out how to change the value here
-    // I think I need to add something to the fetch function
+        //something needs to be done with jsonObjectReturned, but I can't figure out what
 
+}
+
+
+async function addNewBoardGame(event) {
+    //stop the form from submitting, we are using fetch() instead!
+    event.preventDefault();
+
+    let minInput = document.querySelector("input#bg-min").value;
+    let maxInput = document.querySelector("input#bg-max").value;
+
+    if (minInput > 0 && minInput <= 20 && maxInput > 0 && maxInput <= 20) {
+        let newBoardGame = {
+            name: document.querySelector("input#bg-name").value,
+            category: document.querySelector("input#bg-category").value,
+            minPlayers: minInput,
+            maxPlayers: maxInput
+        };
+
+        let uri = "http://localhost:8080/boardgames";
+        let config = {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newBoardGame)
+        };
+
+        let response = await fetch(uri, config);
+        let jsonObjectReturned = await response.json();
+        addSingleBoardGameToTable(jsonObjectReturned);
+    } else {
+        alert("Please enter a number between 1 - 20")
+    }
 }
