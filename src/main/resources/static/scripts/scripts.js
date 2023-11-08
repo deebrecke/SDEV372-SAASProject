@@ -11,6 +11,20 @@ window.onload = async function () {
 
     let editVideoGameButton = document.querySelector("button#edit-vg");
     editVideoGameButton.onclick = editVideoGame;
+
+    let deleteLinks = document.querySelectorAll("#vg-tbody")
+    for (let i = 0; i < deleteLinks.length; i++){
+        deleteLinks[i].onclick = deleteHandler
+    }
+}
+
+function deleteHandler(event)
+{
+    event.preventDefault()
+
+    let row = event.target.parentElement.parentElement
+    let tbody = document.querySelector("#vg-tbody")
+    tbody.removeChild(row)
 }
 
 async function fetchBoardGames() {
@@ -67,7 +81,7 @@ function addSingleBoardGameToTable(boardgame) {
 
 function addSingleVideoGameToTable(videogame) {
     //create HTML elements
-    let body = document.querySelector("#vg-tbody");
+    let tBody = document.querySelector("#vg-tbody");
     let row = document.createElement("tr");
     let tableId = document.createElement("td");
     let tableName = document.createElement("td");
@@ -77,7 +91,7 @@ function addSingleVideoGameToTable(videogame) {
     let deleteLink = document.createElement("a");
 
     //connect them (parent to child)
-    body.appendChild(row);
+    tBody.appendChild(row);
     row.appendChild(tableId)
     row.appendChild(tableName)
     row.appendChild(tableConsole)
@@ -91,6 +105,7 @@ function addSingleVideoGameToTable(videogame) {
     tableConsole.textContent = videogame.consoleType;
     tableMulti.textContent = videogame.multiplayer;
     deleteLink.textContent = "delete"
+    deleteLink.href = "#"
 }
 
 function addBoardGamesToTable(boardGameArray) {
@@ -202,9 +217,9 @@ async function editVideoGame(event) {
         let otherId = parseInt(tdId.textContent)
 
         if (gameId === otherId) {
-            tr = editedVideoGame
+            tr = jsonObjectReturned //this works the same way if I use editedVideoGame instead--neither refreshes
         }
     }
-
-
+//code works except that it requires a manual refresh of the screen.
+//code breaks if I move the response portion down here, even if I use the editedVideoGame as the row to change
 }
