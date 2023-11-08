@@ -12,18 +12,33 @@ window.onload = async function () {
     let editVideoGameButton = document.querySelector("button#edit-vg");
     editVideoGameButton.onclick = editVideoGame;
 
-    let deleteLinks = document.querySelectorAll("#vg-tbody")
-    for (let i = 0; i < deleteLinks.length; i++){
-        deleteLinks[i].onclick = deleteHandler
+    let deleteVGLinks = document.querySelectorAll("#vg-tbody")
+    for (let i = 0; i < deleteVGLinks.length; i++){
+        deleteVGLinks[i].onclick = deleteVGHandler
     }
+
+    let deleteBGLinks = document.querySelectorAll("#bg-tbody")
+    for (let i = 0; i < deleteBGLinks.length; i++){
+        deleteBGLinks[i].onclick = deleteBGHandler
+    }
+
 }
 
-function deleteHandler(event)
+function deleteVGHandler(event)
 {
     event.preventDefault()
 
     let row = event.target.parentElement.parentElement
     let tbody = document.querySelector("#vg-tbody")
+    tbody.removeChild(row)
+}
+
+function deleteBGHandler(event)
+{
+    event.preventDefault()
+
+    let row = event.target.parentElement.parentElement
+    let tbody = document.querySelector("#bg-tbody")
     tbody.removeChild(row)
 }
 
@@ -59,7 +74,8 @@ function addSingleBoardGameToTable(boardgame) {
     let tableCategory = document.createElement("td");
     let tableMin = document.createElement("td");
     let tableMax = document.createElement("td");
-    let deleteButton = document.createElement("td")
+    let deleteLinkCell = document.createElement("td")
+    let deleteLink = document.createElement("a");
 
     //connect them (parent to child)
     body.appendChild(row);
@@ -68,7 +84,9 @@ function addSingleBoardGameToTable(boardgame) {
     row.appendChild(tableCategory)
     row.appendChild(tableMin)
     row.appendChild(tableMax)
-    row.appendChild(deleteButton)
+    deleteLinkCell.appendChild(deleteLink)
+    row.appendChild(deleteLinkCell)
+
 
     //add text or HTML attributes
     tableId.textContent = boardgame.id;
@@ -76,7 +94,8 @@ function addSingleBoardGameToTable(boardgame) {
     tableCategory.textContent = boardgame.category;
     tableMin.textContent = boardgame.minPlayers;
     tableMax.textContent = boardgame.maxPlayers;
-    deleteButton.textContent = "delete"
+    deleteLink.textContent = "delete"
+    deleteLink.href = "#"
 }
 
 function addSingleVideoGameToTable(videogame) {
@@ -209,6 +228,7 @@ async function editVideoGame(event) {
     let jsonObjectReturned = await response.json();
 
     let rows = document.querySelectorAll("#vg-tbody tr");
+    let gameId = jsonObjectReturned.id
 
     for (let i = 0; i < rows.length; i++) {
         let tr = rows[i]
@@ -217,9 +237,9 @@ async function editVideoGame(event) {
         let otherId = parseInt(tdId.textContent)
 
         if (gameId === otherId) {
-            tr = jsonObjectReturned //this works the same way if I use editedVideoGame instead--neither refreshes
+            tr.children[1].textContent = jsonObjectReturned.name
+            tr.children[2].textContent = jsonObjectReturned.consoleType
+            tr.children[3].textContent = jsonObjectReturned.multiplayer
         }
     }
-//code works except that it requires a manual refresh of the screen.
-//code breaks if I move the response portion down here, even if I use the editedVideoGame as the row to change
 }
