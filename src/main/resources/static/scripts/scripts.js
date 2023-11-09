@@ -12,6 +12,9 @@ window.onload = async function () {
     let editVideoGameButton = document.querySelector("button#edit-vg");
     editVideoGameButton.onclick = editVideoGame;
 
+    let editBoardGameButton = document.querySelector("button#edit-bg");
+    editBoardGameButton.onclick = editBoardGame;
+
     let deleteVGLinks = document.querySelectorAll("#vg-tbody")
     for (let i = 0; i < deleteVGLinks.length; i++){
         deleteVGLinks[i].onclick = deleteVGHandler
@@ -240,6 +243,47 @@ async function editVideoGame(event) {
             tr.children[1].textContent = jsonObjectReturned.name
             tr.children[2].textContent = jsonObjectReturned.consoleType
             tr.children[3].textContent = jsonObjectReturned.multiplayer
+        }
+    }
+}
+
+async function editBoardGame(event) {
+    event.preventDefault();
+
+    let editedBoardGame = {
+        id: document.querySelector("input#edit-bg-id").value,
+        name: document.querySelector("input#edit-bg-name").value,
+        category: document.querySelector("input#edit-bg-category").value,
+        minPlayers: document.querySelector("input#edit-bg-min").value,
+        maxPlayers: document.querySelector("input#edit-bg-max").value
+    };
+
+    let uri = "http://localhost:8080/boardgames";
+    let config = {
+        method: "put",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(editedBoardGame)
+    };
+
+    let response = await fetch(uri, config);
+    let jsonObjectReturned = await response.json();
+
+    let rows = document.querySelectorAll("#bg-tbody tr");
+    let gameId = jsonObjectReturned.id
+
+    for (let i = 0; i < rows.length; i++) {
+        let tr = rows[i]
+
+        let tdId = tr.children[0];
+        let otherId = parseInt(tdId.textContent)
+
+        if (gameId === otherId) {
+            tr.children[1].textContent = jsonObjectReturned.name
+            tr.children[2].textContent = jsonObjectReturned.category
+            tr.children[3].textContent = jsonObjectReturned.minPlayers
+            tr.children[4].textContent = jsonObjectReturned.maxPlayers
         }
     }
 }
