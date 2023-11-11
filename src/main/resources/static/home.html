@@ -7,127 +7,140 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<h1>Games are for Everyone!</h1>
+<div class="container">
+    <div id="upper">
 
-<div id="game_pic">
-    <img src="images/games.jpg" alt="Assortment of games" id="game_assortment"/>
-</div>
+        <h1>Games are for Everyone!</h1>
 
-<p>Welcome to my games web page. I personally love games of all sorts, video games, board games, card games,
-    but generally not head games. On this page I will be cataloguing and describing some of the games I have at home.
-    You will also be able to add some of your favorite games.
-</p>
-<div>
-    <h3>Here are some of the categories for my board games</h3>
-    <ul>
-        <li>
-            <strong>Family games</strong> These are games that are good for all ages. Some of my favorites include
-            Connect 4, Pickomino, and parchisi.
-        </li>
-        <li>
-            <strong>Logic Games</strong> This is my favorite board game category. This could actually be broken up into
-            several sub-categories as well. We have friends that come over for a monthly game night, and we usually play
-            an epic game like Terraforming Mars, Puerto Rico, or Domaine. These are games that tend to last 2-3 hours,
-            sometimes even longer. Other logic games that are more in keeping with the typical 30-45 minute family game
-            include domination and blockus.
-        </li>
-        <li>
-            <strong>Party Games</strong> These are games that are more fun the more people you have. Usually, while
-            there is still a winner, winning isn't the goal so much as laughing is. When I have a group of people over
-            who have different intersts and gaming backgrounds, I like to play Monikers, Cards Against Humanity, Poetry
-            for Neanderthals or Taboo.
-        </li>
-        <li>
-            <strong>Other Games</strong> Some games either fit multiple categories or don't quite fit into the
-            categories
-            listed above, so they are in the "other" category. I included all of my two-player-only games,
-            such as pentago, backgammon, and hive as well as some hard-to classify card games like exploding kittens and
-            Here to Slay.
-        </li>
-    </ul>
-</div>
-<hr>
-<div class="gametables">
+        <div id="game_pic">
+            <img src="images/games.jpg" alt="Assortment of games" id="game_assortment"/>
+        </div>
+        <div id="textcontent">
+            <p>Welcome to my games web page. I personally love games of all sorts, video games, board games, card games,
+                but generally not head games. On this page I will be cataloguing and describing some of the games I have at
+                home.
+                You will also be able to add some of your favorite games.
+            </p>
 
-    <section id="bg-table">
-        <h2>My Board Games</h2>
-        <table>
-            <thead>
-            <tr>
-                <td>Id</td>
-                <td>Name</td>
-                <td>Category</td>
-                <td>Minimum Players</td>
-                <td>Maximum Players</td>
-                <td>Delete</td>
-            </tr>
-            </thead>
+            <h3>Here are some of the categories for my board games</h3>
+            <ul>
+                <li>
+                    <strong>Family games</strong> These are games that are good for all ages. Some of my favorites include
+                    Connect 4, Pickomino, and parchisi.
+                </li>
+                <li>
+                    <strong>Logic Games</strong> This is my favorite board game category. This could actually be broken up
+                    into
+                    several sub-categories as well. We have friends that come over for a monthly game night, and we usually
+                    play
+                    an epic game like Terraforming Mars, Puerto Rico, or Domaine. These are games that tend to last 2-3
+                    hours,
+                    sometimes even longer. Other logic games that are more in keeping with the typical 30-45 minute family
+                    game
+                    include domination and blockus.
+                </li>
+                <li>
+                    <strong>Party Games</strong> These are games that are more fun the more people you have. Usually, while
+                    there is still a winner, winning isn't the goal so much as laughing is. When I have a group of people
+                    over
+                    who have different intersts and gaming backgrounds, I like to play Monikers, Cards Against Humanity,
+                    Poetry
+                    for Neanderthals or Taboo.
+                </li>
+                <li>
+                    <strong>Other Games</strong> Some games either fit multiple categories or don't quite fit into the
+                    categories
+                    listed above, so they are in the "other" category. I included all of my two-player-only games,
+                    such as pentago, backgammon, and hive as well as some hard-to classify card games like exploding kittens
+                    and
+                    Here to Slay.
+                </li>
+            </ul>
+        </div>
 
-            <tbody id="bg-tbody">
+    </div>
+    <hr>
 
-            </tbody>
+        <section id="bg-table">
+            <h2>My Board Games</h2>
+            <table>
+                <thead>
+                <tr>
+                    <td>Id</td>
+                    <td>Name</td>
+                    <td>Category</td>
+                    <td>Minimum Players</td>
+                    <td>Maximum Players</td>
+                    <td>Delete</td>
+                </tr>
+                </thead>
 
-        </table>
-    </section>
+                <tbody id="bg-tbody">
 
-    <section>
-        <br>
-        <br>
-        <br>
-        <form>
-            <h3>Enter a new Board Game</h3>
-            <label>Name: </label>
-            <input type="text" id="bg-name">
+                </tbody>
+
+            </table>
+        </section>
+
+        <section id="addbgame">
             <br>
-            <label>Category: </label>
-            <input type="text" id="bg-category">
             <br>
+            <br>
+            <form>
+                <h3>Enter a new Board Game</h3>
+                <label>Name: </label>
+                <input type="text" id="bg-name">
+                <br>
+                <label>Category: </label>
+                <input type="text" id="bg-category">
+                <br>
 
-            <label>Min Players: </label>
-            <input type="text" id="bg-min">
-            <br>
+                <label>Min Players: </label>
+                <input type="text" id="bg-min">
+                <br>
 
-            <label>Max Players: </label>
-            <input type="text" id="bg-max">
-            <br>
-            <button id="add-bg">Add Boardgame</button>
-        </form>
-    </section>
+                <label>Max Players: </label>
+                <input type="text" id="bg-max">
+                <br>
+                <button id="add-bg">Add Boardgame</button>
+            </form>
+        </section>
 
-    <section>
-        <br>
-        <br>
-        <br>
-        <form>
-            <h3>Edit a Board Game</h3>
-            <label>Id#: </label>
-            <input type="text" id="edit-bg-id">
+        <section id="editbgame">
             <br>
-            <label>Name: </label>
-            <input type="text" id="edit-bg-name">
             <br>
-            <label>Category: </label>
-            <input type="text" id="edit-bg-category">
             <br>
+            <form>
+                <h3>Edit a Board Game</h3>
+                <label>Id#: </label>
+                <input type="text" id="edit-bg-id">
+                <br>
+                <label>Name: </label>
+                <input type="text" id="edit-bg-name">
+                <br>
+                <label>Category: </label>
+                <input type="text" id="edit-bg-category">
+                <br>
 
-            <label>Min Players: </label>
-            <input type="text" id="edit-bg-min">
-            <br>
+                <label>Min Players: </label>
+                <input type="text" id="edit-bg-min">
+                <br>
 
-            <label>Max Players: </label>
-            <input type="text" id="edit-bg-max">
-            <br>
-            <button id="edit-bg">Edit Boardgame</button>
-        </form>
-    </section>
+                <label>Max Players: </label>
+                <input type="text" id="edit-bg-max">
+                <br>
+                <button id="edit-bg">Edit Boardgame</button>
+            </form>
+        </section>
 
-</div>
-<br>
-<hr>
-<div class="gametables">
 
-    <section id="vg-table">
-        <h2>My Video Games</h2>
+
+    <br>
+    <hr>
+
+
+        <section id="vg-table">
+            <h2>My Video Games</h2>
             <table>
                 <thead>
                 <tr>
@@ -141,53 +154,53 @@
                 <tbody id="vg-tbody">
                 </tbody>
             </table>
-    </section>
+        </section>
 
-    <section>
-        <br>
-        <br>
-        <br>
-        <form id="addnewvg">
-            <h3>Enter a new Video Game</h3>
-            <label>Name: </label>
-            <input type="text" id="vg-name">
+        <section id="addvgame">
             <br>
-            <label>Console: </label>
-            <input type="text" id="vg-console">
             <br>
-            <label>MultiPlayer?: </label>
-            <input type="text" id="vg-multi">
             <br>
-            <button id="add-vg">Add Videogame:</button>
-        </form>
-    </section>
+            <form id="addnewvg">
+                <h3>Enter a new Video Game</h3>
+                <label>Name: </label>
+                <input type="text" id="vg-name">
+                <br>
+                <label>Console: </label>
+                <input type="text" id="vg-console">
+                <br>
+                <label>MultiPlayer?: </label>
+                <input type="text" id="vg-multi">
+                <br>
+                <button id="add-vg">Add Videogame:</button>
+            </form>
+        </section>
 
-    <section>
-        <br>
-        <br>
-        <br>
-        <form>
-            <h3>Edit a Video Game</h3>
-            <label>Id#: </label>
-            <input type="text" id="edit-vg-id">
+        <section id="editvgame">
             <br>
-            <label>Name: </label>
-            <input type="text" id="edit-vg-name">
             <br>
-            <label>Console: </label>
-            <input type="text" id="edit-vg-console">
             <br>
+            <form>
+                <h3>Edit a Video Game</h3>
+                <label>Id#: </label>
+                <input type="text" id="edit-vg-id">
+                <br>
+                <label>Name: </label>
+                <input type="text" id="edit-vg-name">
+                <br>
+                <label>Console: </label>
+                <input type="text" id="edit-vg-console">
+                <br>
 
-            <label>Multiplayer: </label>
-            <input type="text" id="edit-vg-multi">
-            <br>
+                <label>Multiplayer: </label>
+                <input type="text" id="edit-vg-multi">
+                <br>
 
-            <button id="edit-vg">Edit Videogame</button>
-        </form>
-    </section>
+                <button id="edit-vg">Edit Videogame</button>
+            </form>
+        </section>
+
+    <br>
+    <hr>
 </div>
-<br>
-<hr>
-
 </body>
 </html>

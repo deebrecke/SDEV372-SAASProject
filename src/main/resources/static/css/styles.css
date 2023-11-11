@@ -20,16 +20,6 @@ h1{
     justify-content: center;
 }
 
-.gametables{
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;/* edit this as necessary for layout*/
-    /*This works if you click on the "phone" in the inspect but it doesn't adjust if you shrink the screen*/
-    @media screen and (max-width: 480px) {
-        display: flex;
-        flex-direction: column;
-    }
-}
-
 label {
     width: 100px;
     display: inline-block;
@@ -84,4 +74,66 @@ tbody > tr{
 /* Center specific columns */
 #bg-table td:nth-child(4), #bg-table td:nth-child(5) {
     text-align: center;
+}
+.container{
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+        "upper upper upper upper"
+        "btable btable newb editb"
+        "vtable vtable newv editv";
+    grid-gap: 0.2rem;
+}
+
+#upper{
+    grid-area: upper;
+}
+
+#bg-table{
+    grid-area: btable;
+}
+#addbgame{
+    grid-area: newb;
+}
+#editbgame{
+    grid-area: editb;
+}
+
+#vg-table{
+    grid-area: vtable;
+}
+#addvgame{
+    grid-area: newv;
+}
+#editvgame{
+    grid-area: editv;
+}
+
+@media only screen and (max-width: 990px){
+    .container{
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-areas:
+        "upper upper"
+        "btable btable"
+        "newb editb"
+        "vtable vtable"
+        "newv editv";
+    }
+}
+@media only screen and (max-width: 550px){
+    .container{
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-areas:
+        "upper upper"
+        "btable btable"
+        "newb newb"
+        "editb editb"
+        "vtable vtable"
+        "newv newv"
+        "editv editv";
+    }
 }
