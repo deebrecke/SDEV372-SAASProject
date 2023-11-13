@@ -48,10 +48,7 @@ button {
 table, tr, td{
     border: 2px solid black;
 }
-#test{
-    border-radius: 5px;
-    overflow: hidden;
-}
+
 table{
     width: 100%;
     border-collapse: collapse;
@@ -111,6 +108,9 @@ tbody > tr{
     grid-area: editv;
 }
 
+/*
+Code to make page responsive to tablet size
+ */
 @media only screen and (max-width: 990px){
     .container{
         grid-template-columns: 1fr 1fr;
@@ -123,6 +123,9 @@ tbody > tr{
         "newv editv";
     }
 }
+/*
+Code to make page responsive to phone size
+ */
 @media only screen and (max-width: 550px){
     .container{
         grid-template-columns: 1fr 1fr;
@@ -136,4 +139,8 @@ tbody > tr{
         "newv newv"
         "editv editv";
     }
+}
+.tableborder{
+    border-radius: 10px;
+    overflow: hidden;
 }

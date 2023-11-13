@@ -2,7 +2,7 @@ window.onload = async function () {
     await fetchBoardGames();
     await fetchVideoGames();
 
-    console.log("onload() ended");
+    //console.log("onload() ended");
 
     let addBoardGameButton = document.querySelector("button#add-bg");
     addBoardGameButton.onclick = addNewBoardGame;
