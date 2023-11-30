@@ -1,3 +1,4 @@
+let hostname = window.location.origin
 window.onload = async function () {
     await fetchBoardGames();
     await fetchVideoGames();
@@ -46,7 +47,7 @@ function deleteBGHandler(event)
 }
 
 async function fetchBoardGames() {
-    let uri = "http://localhost:8080/boardgames"
+    let uri = `${hostname}/boardgames`
     let config = {
         method: "get"
     };
@@ -57,7 +58,7 @@ async function fetchBoardGames() {
 }
 
 async function fetchVideoGames() {
-    let uri = "http://localhost:8080/videogames"
+    let uri = `${hostname}/videogames`
     let config = {
         method: "get"
     };
@@ -65,7 +66,6 @@ async function fetchVideoGames() {
     let response = await fetch(uri, config);
     let json = await response.json();
     addVideoGamesToTable(json)
-    editVideoGame(json)
 }
 
 function addSingleBoardGameToTable(boardgame) {
@@ -159,7 +159,7 @@ async function addNewBoardGame(event) {
             maxPlayers: maxInput
         };
 
-        let uri = "http://localhost:8080/boardgames";
+        let uri = `${hostname}/boardgames`
         let config = {
             method: "post",
             headers: {
@@ -190,7 +190,7 @@ async function addNewVideoGame(event) {
             multiplayer: multiplayerInput,
         };
 
-        let uri = "http://localhost:8080/videogames";
+        let uri = `${hostname}/videogames`
         let config = {
             method: "post",
             headers: {
@@ -218,7 +218,7 @@ async function editVideoGame(event) {
         multiplayer: document.querySelector("input#edit-vg-multi").value
     };
 
-    let uri = "http://localhost:8080/videogames";
+    let uri = `${hostname}/videogames`
     let config = {
         method: "put",
         headers: {
@@ -258,7 +258,7 @@ async function editBoardGame(event) {
         maxPlayers: document.querySelector("input#edit-bg-max").value
     };
 
-    let uri = "http://localhost:8080/boardgames";
+    let uri = `${hostname}/boardgames`
     let config = {
         method: "put",
         headers: {
@@ -287,3 +287,7 @@ async function editBoardGame(event) {
         }
     }
 }
+/*
+https://sdev-372-fall-2023-403616.uc.r.appspot.com/home.html app engine
+
+ */
