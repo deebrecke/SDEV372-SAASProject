@@ -288,6 +288,7 @@ async function editBoardGame(event) {
     }
 }
 /*
+http://34.125.21.207:8080/home.html compute engine
 https://sdev-372-fall-2023-403616.uc.r.appspot.com/home.html app engine
-
+http://35.232.53.255/home.html kubernetes
  */
