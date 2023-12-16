@@ -13,7 +13,6 @@
 - Project Creation 
 - Writing A Web API 
 - Consuming a Web API 
-- Integrating Public API's (We probably won't get to this one)
 - Deploying to the Cloud
 
 ## Project Description
@@ -22,6 +21,7 @@ I created an API with information about games in my collection.
 I have two classes--one for board games and one for video games.
 It now allows the user to add games, edit them,
 and delete records from the tables. This was done using asynchronous 
-functions in javascript.
+functions in javascript. We deployed this project to the cloud using compute engine
+app engine, and kubernetes with docker.
 
 Postman documentation link:  https://documenter.getpostman.com/view/30297492/2s9YRCXrPv
